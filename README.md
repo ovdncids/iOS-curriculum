@@ -110,24 +110,23 @@ func testVariable1() throws {
   연산자 이름으로 사용 불가 (+, -, *, /, ==, !, <, >, self, ...)
   자료형 또는 예약어(명령어) 사용 불가 (true, false, null, ...)
   숫자를 앞으로 사용 불가 (1a, 2b, ...)
-  영문, _, $, 숫자 조합으로 사용 (_a, $b, c1, ...)
+  영문, _, 숫자 조합으로 사용 (_a, b1, c_2, ...)
   대소문자 구분 (lowUP, LowUp, LOWUP)
   주로 `Camel(낙타) 표기법`으로 사용 (carUse, busTake, ...)
   ```
 
 2. `디버깅 모드`에서 연산의 과정을 볼 수 있다.
 ```js
-func testVariable1() throws {
-    console.log(1 + 2 + 3);
-    let num1 = 1;
-    let num2 = 2;
-    let num3 = 3;
-    let sum1 = num1 + num2;
-    let sum2 = sum1 + num3;
-    console.log(sum2);
+func testVariable2() throws {
+    print(1 + 2 + 3)
+    var num1 = 1
+    var num2 = 2
+    var num3 = 3
+    var sum1 = num1 + num2
+    var sum2 = sum1 + num3
+    print(sum2)
 }
 ```
-* breakpoint 설명
 
 3. 변수 수정으로 프로그램 전체를 수정 가능하다.
 ```js
