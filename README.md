@@ -50,3 +50,18 @@ class VariableTests: XCTestCase {
 * `class` 라인번호에 있는 다이아몬드 버튼 눌러서 테스트 실행
 * `debug 모드` 설명
 
+## Git
+```sh
+# commit
+좌측 Source control navigator > Changes > 하단에 ... > Commit...
+
+# github 연결
+## github에서 새로운 레파지토리 SwiftStudy 생성
+좌측 Source control navigator > Repositories > SwiftStudy > Add Existing Remote...
+  Remote Name: origin
+  Location: https://github.com/xxx/SwiftStudy.git
+
+# push
+상단 Source Control > Push... > origin/main
+
+```
