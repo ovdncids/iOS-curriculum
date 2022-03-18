@@ -63,5 +63,13 @@ class VariableTests: XCTestCase {
 
 # push
 상단 Source Control > Push... > origin/main
-
+  Sgin in to your Github account
+    Account: 깃헙계정
+    Token: 생성한 토큰
+  Create a token on Github
+    # 토큰을 생성하면서 다음 권한 선택
+    admin:public_key
+    write:discussion
+    repo
+    user
 ```
