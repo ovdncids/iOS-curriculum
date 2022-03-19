@@ -85,6 +85,13 @@ class VariableTests: XCTestCase {
 ```
 * [Create a token on Github](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
+<!--
+.gitignore
+```
+**/Breakpoints_v2.xcbkptlist
+```
+-->
+
 ## 변수 (Variable)
 ### 변수를 사용하는 이유
 1. 자료형 데이터를 보관 할 수 있고, 자유롭게 값을 수정 할 수 있다.
