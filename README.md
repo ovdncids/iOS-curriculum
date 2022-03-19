@@ -138,7 +138,7 @@ func testVariable2() throws {
     print(sum2)
 }
 ```
-* ❕ 경고는 상수로 변경
+* ❕ 경고 해결은 숙제
 
 3. 변수 수정으로 프로그램 전체를 수정 가능하다.
 ```swift
@@ -167,4 +167,29 @@ var a, b, c
 ## 상수 (Constant)
 SwiftStudyTests/ConstantTests.swift
 ```swift
+import XCTest
+
+class ConstantTests: XCTestCase {
+
+}
 ```
+
+### 상수를 사용하는 이유
+1. 한번 선언된 값의 변경을 막기 위해 사용 한다.
+```swift
+func testConstant() throws {
+    // 상수 Create
+    let c1 = true
+    let c2 = 100
+    let c3 = "abc"
+
+    // 상수 Read
+    print(c1, c2, c3)
+
+    // 상수 Update
+    // 상수 Delete
+}
+```
+* ❔ c1 상수에 const을 2번 선언 한다면
+* ❔ c1 상수에 값을 변경해 보기
+* 상수에 대한 CRUD 설명
