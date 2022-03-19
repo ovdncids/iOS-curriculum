@@ -29,6 +29,16 @@ iOS Simulator 선택(iPhone SE) > 실행 버튼 누르기
 ```sh
 # 에디터창 분할
 파일 선택 후 오른쪽 상단쪽에 네모에 쌓여있는 +버튼 누르기
+
+# Xcode에서 Finder 열기
+File > Show in Finder
+
+# Finder에서 Terminal 열기
+Finder > 서비스 > 폴더에서 새로운 터미널 열기
+
+# Xcode에서 경로 복사 후 Terminal 열고 이동
+좌측 Project navigator > SwiftStudy > Show File Inspector > Full Path > Path 복사
+Terminal > cd `복사한 Path 붙여 넣기`
 ```
 
 # 기본 문법
@@ -73,6 +83,7 @@ class VariableTests: XCTestCase {
     repo
     user
 ```
+* [Create a token on Github](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
 ## 변수 (Variable)
 ### 변수를 사용하는 이유
@@ -116,7 +127,7 @@ func testVariable1() throws {
   ```
 
 2. `디버깅 모드`에서 연산의 과정을 볼 수 있다.
-```js
+```swift
 func testVariable2() throws {
     print(1 + 2 + 3)
     var num1 = 1
@@ -127,27 +138,29 @@ func testVariable2() throws {
     print(sum2)
 }
 ```
+* ❕ 경고는 상수로 변경
 
 3. 변수 수정으로 프로그램 전체를 수정 가능하다.
-```js
-let calc = 100;
-console.log(calc + 10);
-console.log(calc - 10);
-console.log(calc * 10);
-console.log(calc / 10);
+```swift
+func testVariable3() throws {
+    var calc = 100
+    print(calc + 10)
+    print(calc - 10)
+    print(calc * 10)
+    print(calc / 10)
+}
 ```
 * ❔ 변수 `calc` 값 수정해 보기
 
 ### 한줄에 변수 여러개 선언하기 (선언문)
-```js
-let a, b, c;
+```swift
+var a, b, c
 ```
-* ❔ 문제: console.log(a); 한다면
 * ❔ 문제: 한줄로 변수 `a, b, c`에 각각 `1, 2, 3` 넣어 보기
 * <details><summary>정답</summary>
 
-  ```js
-  let a = 1, b = 2, c = 3;
+  ```swift
+  var a = 1, b = 2, c = 3
   ```
 </details>
 
