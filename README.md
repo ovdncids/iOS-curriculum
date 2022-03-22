@@ -88,7 +88,11 @@ class VariableTests: XCTestCase {
 <!--
 .gitignore
 ```
+# Breakpoint
 **/Breakpoints_v2.xcbkptlist
+
+# 사용자 화면 배치
+**/UserInterfaceState.xcuserstate
 ```
 -->
 
