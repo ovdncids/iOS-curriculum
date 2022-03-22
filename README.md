@@ -214,24 +214,25 @@ class OperatorTests: XCTestCase {
 1. 문자에 대한 사칙 연산자 (`+, -, *, /`)
 ```swift
 func testOperator1() throws {
-    var string1 = '1'
-    var string2 = '2'
-    var result1 = string1 - string2
-    var result2 = string1 * string2
-    var result3 = string1 / string2
-    var result4 = string1 + string2
+    let int1 = 1
+    let int2 = 2
+    let result1 = int1 + int2
+    let result2 = int1 - int2
+    let result3 = int1 * int2
+    let result4 = int1 / int2
 }
 ```
-* ❔ `string1` 값을 숫자 `1`로 바꾼다면
-* ❔ `string1` 값을 'a'로 `string2` 값을 'b'로 바꾼다면
+* ❔ `int1` 값을 문자 "1"로 바꾼다면
+* ❔ `int2` 값을 문자 "2"로 바꾼다면
+* ❔ `int1` 값을 문자 "a"로 `int2` 값을 문자 "b"로 바꾼다면
 * ❔ 문제: 다음의 `r` 값은?
   ```swift
-  var r = 2 - '1' + 'a'
+  let r = 2 + "1"
   ```
 * <details><summary>정답</summary>
 
   ```swift
-  '1a'
+  오류 발생
   ```
 </details>
 
