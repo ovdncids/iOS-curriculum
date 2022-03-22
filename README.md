@@ -238,82 +238,72 @@ func testOperator1() throws {
 
 * ❔ 문제: 프리랜서 개발자가 월 500만원을 받고 있다. 3.3% 원천징수를 때고 받는 실수령액과 세금을 계산하라.
   ```swift
-  let salary = 5000000
-  let rate = 3.3
-  var tax = ??
-  var realSalary = ??
+  let salary: Double = 5000000
+  let rate: Double = 3.3
+  let tax: Double = ??
+  let realSalary = ??
 
   힌트: 세금 계산식 = 급여 * 원천징수 / 100
   ```
 * <details><summary>정답</summary>
 
   ```swift
-  let salary = 5000000
-  let rate = 3.3
-  var tax = salary * rate / 100
-  var realSalary = salary - tax
+  let salary: Double = 5000000
+  let rate: Double = 3.3
+  let tax: Double = salary * rate / 100
+  let realSalary = salary - tax
   ```
 </details>
+* ❔ `: Double`을 `: Int`로 바꾼다면
 
-2. ==(동등 연산자) 연산자와 ===(일치 연산자) 연산자의 차이
+2. 일치 연산자
 ```swift
-var oNum1 = 1 == '1'
-var oNum2 = 1 === '1'
-var true1 = 1 == true
-var true2 = 1 === true
-var true3 = 1 != true
-var true4 = 1 !== true
-var false1 = 0 == false
-var false2 = 0 === false
-var char1 = true == 'true'
-var char2 = true === 'true'
+let oNum1 = "1" == "1"
+let oNum2 = true != false
 ```
 * ❕ 연산이 끝나면 `Boolean` 형식으로 결과를 반환한다.
-* ❕ 위와 같은 이유로 `동등 연산자`는 사용하지 않는다.
+* ❔ 문자 "1"을 숫자 `1` 바꾼다면
+* ❔ 논리 `true`를 문자 "true"로 바꾼다면
 * ❔ 문제: `1`과 `2`를 `일치 연산자`로 비교 후에 상수 `x`에 넣고, `x`를 `print`로 찍어 보기
 * <details><summary>정답</summary>
 
   ```swift
-  let x = 1 === 2
+  let x = 1 == 2
   print(x)
   ```
 </details>
 
 3. 비교 연산자 (<, <=, >, >=)
 ```swift
-var compare1 = 1 < 1
-var compare2 = 2 <= 2
-var compare3 = 3 > 3
-var compare4 = 4 >= 4
+let compare1 = 1 < 1
+let compare2 = 2 <= 2
+let compare3 = 3 > 3
+let compare4 = 4 >= 4
 ```
 
 4. 논리 연산자 (&&, ||)
 ```swift
-var logical1 = true && true
-var logical2 = false || false
+let logical1 = true && true
+let logical2 = false || false
 ```
 * `&&`를 사용하는 상황: 로그인이 되어 있고, 글수정 권한이 있는 아이디인 경우, 글수정 버튼 활성화
 * `||`를 사용하는 상황: 프리미엄 회원이거나 광고를 본 경우, 영상 시청 가능
-
-```swift
-var logical3 = true && 'abc'
-var logical4 = false || 'def'
-```
-* ❕ `logical3 변수`는 앞의 조건이 `참`이면 `abc`를 받는다.
-* ❕ `logical4 변수`는 앞의 조건이 `거짓`이면 `def`를 받는다.
+* ❕ `true && true`를 `true && 1`으로 바꾼다면
+* ❕ `false || false`를 `false || "a"`으로 바꾼다면
+* ❕ `논리 연산자`는 주로 `if문` 안에서 사용
 
 5. 소괄호() 연산자
 ```swift
-var roundBracket1 = 1 + 2 * 3
-var roundBracket2 = (1 + 2) * 3
-var roundBracket3 = ((1 + 2) * 3)
+let roundBracket1 = 1 + 2 * 3
+let roundBracket2 = (1 + 2) * 3
+let roundBracket3 = ((1 + 2) * 3)
 ```
 * ❕ `소괄호 연산자`는 `사칙 연산자`보다 우선 순위를 갖는다.
 * ❔ 문제: `소괄호 연산자` 안에서 `true`와 `false`를 `일치 연산자`로 연산 후에 상수 `y`에 넣고, `y`를 `print`로 찍어 보기
 * <details><summary>정답</summary>
 
   ```swift
-  let y = (true === false)
+  let y = (true == false)
   print(y)
   ```
 </details>
