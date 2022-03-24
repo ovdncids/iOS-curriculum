@@ -130,7 +130,7 @@ func testVariable1() throws {
   ```
   제어문 이름으로 사용 불가 (if, for, switch, while, ...)
   연산자 이름으로 사용 불가 (+, -, *, /, ==, !, <, >, self, ...)
-  자료형 또는 예약어(명령어) 사용 불가 (true, false, null, ...)
+  자료형 또는 예약어(명령어) 사용 불가 (true, false, nil, ...)
   숫자를 앞으로 사용 불가 (1a, 2b, ...)
   영문, _, 숫자 조합으로 사용 (_a, b1, c_2, ...)
   대소문자 구분 (lowUP, LowUp, LOWUP)
@@ -365,3 +365,133 @@ let condition3 = 1 == 1 ? "a" : "b"
   let condition4 = 2 == 3 ? "c" : "d"
   ```
 </details>
+
+## 배열
+SwiftStudyTests/ArrayTests.swift
+```swift
+import XCTest
+
+class ArrayTests: XCTestCase {
+
+}
+```
+
+### 배열을 사용하는 이유
+1. 순차적인 반복 작업에 사용한다. (주로 동일한 데이터 타입으로 묶인 경우가 많다.)
+2. 숫자(index)를 바탕으로 해당 데이터에 접근 한다.
+
+### 배열 선언, CRUD
+```swift
+func testArray1() throws {
+    let array1: [Any] = []
+    let array2 = [1, 2, 3]
+}
+```
+
+https://t1.daumcdn.net/blogfile/fs8/27_25_21_25_0O7Ul_IMAGE_0_42.jpg?original&filename=42.jpg
+
+### 배열의 CRUD
+```swift
+// 배열 Create
+array1.append(1)
+array1.append("2")
+array1.append("삼")
+
+// 배열 Read
+array1[0]
+let a1 = array1[0]
+let a2 = array1[1]
+let a3 = array1[2]
+
+// 배열 Update
+array1[0] = 0
+array1[1] = false
+array1[2] = [1, 2, 3]
+
+// 배열 Delete
+array1.remove(at: 0)
+array1.remove(at: 1)
+array1.remove(at: 2)
+```
+* ❔ `배열의 CRUD` 부분 주석 처리하고, 개발자 도구 Console 창에서 `배열의 CRUD` 실행 해보기
+
+### 배열의 크기
+```swift
+let length1 = array1.count
+let length2 = array2.count
+let firstValue = array2.first
+let lastValue = array2.last
+```
+
+### 배열의 성격
+```swift
+func testArray2() throws {
+    var arr1 = [1, 2, 3]
+    let arr2 = [1, 2, 3]
+    // quiz1
+    if (arr1 == arr2) {
+      let result = "참"
+      print(result)
+    } else {
+      let result = "거짓"
+      print(result)
+    }
+    let quiz2 = arr1[5]
+    // quiz3
+    arr1[9] = 10
+}
+```
+* ❔ 문제: `arr1`와 `arr2`는 같을까?
+<!--
+* <details><summary>정답</summary>
+
+  https://ovdncids.github.io/javascript-curriculum/images/memory.png
+  ```
+  배열은 선언과 동시에 별도의 `메모리 공간`에 존재하고, 변수는 단지 해당 배열이 있는 `메모리 주소`를 가지고 있다.
+  따라서 `arr1`과 `arr2`는 서로 다른 배열의 주소를 가지므로 같지 않다.
+  만약 `arr1` 변수의 값을 변화 시킨다면, `메모리 주소`를 잃어 버리므로 해당 배열은 더이상 접근할 수 없게 된다.
+  ```
+</details>
+-->
+* ❔ 해당 배열이 가진 `count`보다 큰 `index`를 `Read` 한다면?
+* ❔ 해당 배열이 가진 `count`보다 큰 `index`를 `Update` 한다면?
+
+### 익명 배열
+```swift
+print([1, 2, 3])
+```
+* 해당 배열의 `메모리 주소`를 누구도 받지 않으므로 재사용 할 수 없다.
+
+### 배열 실습
+* 1부터 5까지 더하기(total 변수를 만들어서 한번씩 더해서 만듬)
+```swift
+let testArray1 = [1, 2, 3, 4, 5]
+var  total1 = testArray1[0]
+total1 = total1 + testArray1[1]
+total1 = total1 + testArray1[2]
+total1 += testArray1[3]
+total1 += testArray1[4]
+```
+
+* `testArray1` 평균 구하기
+```swift
+let avg = total1 / testArray1.length
+```
+
+* `testArray1` 홀수만 더하기
+```swift
+let odd1 = testArray1[0] + testArray1[2] + testArray1[4]
+```
+
+* `testArray1` 짝수만 더하기
+```swift
+let even1 = testArray1[1] + testArray1[3]
+```
+
+* 홀수만 지우기
+```swift
+testArray1.splice(0, 1)
+testArray1.splice(1, 1)
+testArray1.splice(2, 1)
+```
+* ❔ 문제: 짝수만 지워기
