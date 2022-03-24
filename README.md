@@ -465,17 +465,19 @@ print([1, 2, 3])
 ### 배열 실습
 * 1부터 5까지 더하기(total 변수를 만들어서 한번씩 더해서 만듬)
 ```swift
-let testArray1 = [1, 2, 3, 4, 5]
-var  total1 = testArray1[0]
-total1 = total1 + testArray1[1]
-total1 = total1 + testArray1[2]
-total1 += testArray1[3]
-total1 += testArray1[4]
+func testArray3() throws {
+    var testArray1 = [1, 2, 3, 4, 5]
+    var  total1 = testArray1[0]
+    total1 = total1 + testArray1[1]
+    total1 = total1 + testArray1[2]
+    total1 += testArray1[3]
+    total1 += testArray1[4]
+}
 ```
 
 * `testArray1` 평균 구하기
 ```swift
-let avg = total1 / testArray1.length
+let avg = total1 / testArray1.count
 ```
 
 * `testArray1` 홀수만 더하기
@@ -490,8 +492,8 @@ let even1 = testArray1[1] + testArray1[3]
 
 * 홀수만 지우기
 ```swift
-testArray1.splice(0, 1)
-testArray1.splice(1, 1)
-testArray1.splice(2, 1)
+testArray1.remove(at: 0)
+testArray1.remove(at: 1)
+testArray1.remove(at: 2)
 ```
-* ❔ 문제: 짝수만 지워기
+* ❔ 문제: 짝수만 지우기
