@@ -497,3 +497,192 @@ testArray1.remove(at: 1)
 testArray1.remove(at: 2)
 ```
 * ❔ 문제: 짝수만 지우기
+
+## for문(제어문 > 반복문)
+SwiftStudyTests/ForTests.swift
+```swift
+import XCTest
+
+class ForTests: XCTestCase {
+
+}
+```
+
+### for문을 사용하는 이유
+1. 반복 작업을 한곳으로 묶기 위해 사용함 (주로 배열이 사용 된다.)
+2. 주로 게시판에 목록을 보여줄때 주로 사용함
+
+### for문 문법
+1. 기본 구조1
+```swift
+for 변수 in 초기값...마지막값 {
+    실행문
+    ...
+}
+```
+* 예제
+```swift
+func testFor1() throws {
+    for index1 in 0...2 {
+        print(index1)
+    }
+}
+```
+
+2. break
+```swift
+for index2 in 0...2 {
+    print(index2)
+    break
+}
+```
+
+3. continue
+```swift
+for index3 in 0...2 {
+    if (index3 == 1) {
+        continue
+    }
+    print(index3)
+}
+```
+
+* ❔ 문제: `1`부터 `10`까지 반복에서 `5`보다 작은 경우만 `실행문`에서 `print`로 찍어 보기
+* <details><summary>정답</summary>
+
+  ```swift
+  for index4 in 1...10 {
+      if (index4 < 5) {
+          print(index4)
+      }
+  }
+   ```
+</details>
+
+* ❔ 문제: `2`부터 `9`까지 반복에서 `6`보다 작은 경우 `실행문`에서 `print`로 찍어고, 크면 `for문`을 빠져 나가기
+* <details><summary>정답</summary>
+
+  ```swift
+  for index5 in 2...9 {
+      if (index5 < 6) {
+          print(index5)
+      } else {
+          break
+      }
+  }
+  ```
+</details>
+
+### 홀수와 짝수 표현하기
+```swift
+for (var index6 = 1; index6 <= 10; index6 += 1) {
+  if (index6 % 2 === 1) {
+    print("숫자 " + index6 + "은 홀수 입니다.")
+  } else {
+    print("숫자 " + index6 + "은 짝수 입니다.")
+  }
+  let oddEven = index6 % 2 ? "홀수" : "짝수"
+  print("숫자 " + index6 + "은 "+ oddEven + " 입니다.")
+}
+```
+
+### for문의 범위(Scope), Script 변수와 Block(Local) 변수의 차이
+1. 초기문 사용하지 않기
+```swift
+var index7 = 0
+for (; index7 < 3; index7++) {
+  let blocklet = index7
+  print(blocklet)
+}
+print(index7)
+```
+* ❕ 결과적으로 `Script 변수 index7`은 for문이 반복된 횟수가 된다.
+* ❔ `var index7 = 0;` `초기문`에 추가해 보기 (에러가 발생할지 생각해 보기)
+* 가림 현상 설명 (VSCode에서 `index7` 마우스 오버해보기, Ctrl(또는 command) 키를 눌러서 해당 변수 이동)
+* Block(Local) 변수 설명
+* ❔ 문제: `Script 변수 total1`에 `0`을 넣고, `for문`을 이용해 `total1`에 1부터 5까지 더하고, `total1`을 `for문` 밖에서 `print`로 찍어 보기
+* <details><summary>정답</summary>
+
+  ```swift
+  var total1 = 0
+  for (var index8 = 1; index8 <= 5; index8++) {
+    total1 += index8
+  }
+  print(total1)
+  ```
+</details>
+
+* ❔ 문제: `total1`의 `평균` 값을 구해 `avg1` 상수에 넣고, `avg1`을 `print`로 찍어 보기
+* ❕ 힌트: 평균으로 나눌 `5`값을 얻는 과정이 중요 (변수 또는 상수를 여러개 사용해도 무관, 사직연산 가능)
+* <details><summary>정답</summary>
+
+  ```swift
+  var total1 = 0
+  var index8 = 1
+  for (; index8 <= 5; index8++) {
+    total1 += index8
+  }
+  let count = index8 - 1
+  let avg1 = total1 / count
+  print(avg1)
+  ```
+  `total1 / 5 ` 이렇게 바로 나누었다면, 나중에 프로그램이 1에서 10까지로 변한다면, `5`값을 `2군데`에서 수정 해야 한다.
+</details>
+
+### for문에서 배열 사용하기
+```swift
+let array1 = [1, 2, 3]
+for (var index9 = 0; index9 < array1.length; index9++) {
+  print(array1[index9])
+}
+```
+* ❔ 문제: `Script 상수 array2`에 `빈 배열`을 넣고, 위에 for문을 이용해 `array2` 배열을 `[1, 2, 3]`으로 만들고, `array2`를 for문이 끝나고 `print`로 찍어 보기
+* <details><summary>정답</summary>
+
+  ```swift
+  let array1 = [1, 2, 3]
+  let array2 = []
+  for (var index9 = 0; index9 < array1.length; index9++) {
+    array2.push(array1[index9])
+  }
+  print(array2)
+  ```
+</details>
+
+* ❕ 결과적으로 `array2`는 `array1`을 복사하였다.
+* ❔ `array1 === array2` 참일까요?
+* ❕ 메모리 설명
+```swift
+var array3 = [1, 2, 3]
+var array4 = array3
+```
+* ❔ `array3 === array4` 참일까?
+```swift
+array3 = 3
+array4 = 4
+```
+* ❔ 문제: `array3`에서 사용하던 배열에 다시 접근할 수 있을까?
+* <details><summary>정답</summary>
+
+  없다. (따라서 배열은 `let`로 사용 해야한다.)
+</details>
+
+### index++와 ++index의 차이
+```swift
+var index = 0
+let diff1 = index++
+let diff2 = ++index
+```
+* <details><summary>동작</summary>
+
+  ```swift
+  var index = 0
+  // let diff1 = index++
+  let diff1 = index
+  index += 1
+
+  // let diff2 = ++index
+  index += 1
+  let diff2 = index
+  ```
+</details>
