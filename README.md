@@ -575,14 +575,14 @@ for index3 in 0...2 {
 
 ### 홀수와 짝수 표현하기
 ```swift
-for (var index6 = 1; index6 <= 10; index6 += 1) {
-  if (index6 % 2 === 1) {
-    print("숫자 " + index6 + "은 홀수 입니다.")
-  } else {
-    print("숫자 " + index6 + "은 짝수 입니다.")
-  }
-  let oddEven = index6 % 2 ? "홀수" : "짝수"
-  print("숫자 " + index6 + "은 "+ oddEven + " 입니다.")
+for index6 in 1...10 {
+    if (index6 % 2 == 1) {
+        print("숫자 " + String(index6) + "은 홀수 입니다.")
+    } else {
+        print("숫자 " + String(index6) + "은 짝수 입니다.")
+    }
+    let oddEven = index6 % 2 == 1 ? "홀수" : "짝수"
+    print("숫자 " + String(index6) + "은 " + oddEven + " 입니다.")
 }
 ```
 
@@ -590,23 +590,24 @@ for (var index6 = 1; index6 <= 10; index6 += 1) {
 1. 초기문 사용하지 않기
 ```swift
 var index7 = 0
-for (; index7 < 3; index7++) {
-  let blocklet = index7
-  print(blocklet)
+for index7 in 0...3 {
+    let blockLet = index7
+    print(blockLet)
 }
 print(index7)
 ```
-* ❕ 결과적으로 `Script 변수 index7`은 for문이 반복된 횟수가 된다.
-* ❔ `var index7 = 0;` `초기문`에 추가해 보기 (에러가 발생할지 생각해 보기)
-* 가림 현상 설명 (VSCode에서 `index7` 마우스 오버해보기, Ctrl(또는 command) 키를 눌러서 해당 변수 이동)
+* 가림 현상 설명 (Xcode에서 `index7` 마우스 오버해보기, Ctrl(또는 command) 키를 눌러서 해당 변수 이동)
 * Block(Local) 변수 설명
-* ❔ 문제: `Script 변수 total1`에 `0`을 넣고, `for문`을 이용해 `total1`에 1부터 5까지 더하고, `total1`을 `for문` 밖에서 `print`로 찍어 보기
+* ❔ `for문` 안의 변수 `index7`을 `_index7`으로 변경 (에러가 발생할지 생각해 보기)
+* `print` 밑에 `index7 += 1` 넣기
+* ❕ 결과적으로 `변수 index7`은 for문이 반복된 횟수가 된다.
+* ❔ 문제: `for문` 위에 `변수 total1`에 `0`을 넣고, `for문`을 이용해 `total1`에 1부터 5까지 더하고, `total1`을 `for문` 밖에서 `print`로 찍어 보기
 * <details><summary>정답</summary>
 
   ```swift
   var total1 = 0
-  for (var index8 = 1; index8 <= 5; index8++) {
-    total1 += index8
+  for index8 in 1...5 {
+      total1 += index8
   }
   print(total1)
   ```
