@@ -586,7 +586,7 @@ for index6 in 1...10 {
 }
 ```
 
-### for문의 범위(Scope), Script 변수와 Block(Local) 변수의 차이
+### for문의 범위(Scope), 로컬(Local) 변수와 블록(Block) 변수의 차이
 1. 초기문 사용하지 않기
 ```swift
 var index7 = 0
@@ -619,15 +619,15 @@ print(index7)
 
   ```swift
   var total1 = 0
-  var index8 = 1
-  for (; index8 <= 5; index8++) {
-    total1 += index8
+  var count = 0
+  for index8 in 1...5 {
+      total1 += index8
+      count += 1
   }
-  let count = index8 - 1
   let avg1 = total1 / count
   print(avg1)
   ```
-  `total1 / 5 ` 이렇게 바로 나누었다면, 나중에 프로그램이 1에서 10까지로 변한다면, `5`값을 `2군데`에서 수정 해야 한다.
+  `total1 / 5` 이렇게 바로 나누었다면, 나중에 프로그램이 1에서 10까지로 변한다면, `5`값을 `2군데`에서 수정 해야 한다.
 </details>
 
 ### for문에서 배열 사용하기
