@@ -632,9 +632,11 @@ print(index7)
 
 ### for문에서 배열 사용하기
 ```swift
-let array1 = [1, 2, 3]
-for (var index9 = 0; index9 < array1.length; index9++) {
-  print(array1[index9])
+func testFor3() throws {
+    let array1 = [1, 2, 3]
+    for index9 in array1 {
+      print(index9)
+    }
 }
 ```
 * ❔ 문제: `Script 상수 array2`에 `빈 배열`을 넣고, 위에 for문을 이용해 `array2` 배열을 `[1, 2, 3]`으로 만들고, `array2`를 for문이 끝나고 `print`로 찍어 보기
