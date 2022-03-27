@@ -120,10 +120,11 @@ func testVariable1() throws {
     // 변수 Delete
 }
 ```
-* 자료형에는 `Boolean`(true, false), `Number`(숫자), `String`(문자) 3가지가 주로 쓰인다.
+* 자료형에는 `Bool`(true, false), `Int`(숫자), `String`(문자) 3가지가 주로 쓰인다.
 * `var` 선언문 설명
 * `print()` 설명
 * ❔ `v1` 변수에 var를 2번 선언 한다면
+* ❔ `v1` 변수에 123을 할당 한다면
 * ❔ 선언 하지 않은 `v4` 변수를 `print(v4)`로 읽는(Read)다면
 * `변수`에 대한 `CRUD` 설명
 * ❕ `변수명`에 대한 규칙
@@ -260,15 +261,15 @@ func testOperator1() throws {
 </details>
 * ❔ `: Double`을 `: Int`로 바꾼다면
 
-2. 일치 연산자
+2. 동등 연산자
 ```swift
 let oNum1 = "1" == "1"
 let oNum2 = true != false
 ```
-* ❕ 연산이 끝나면 `Boolean` 형식으로 결과를 반환한다.
+* ❕ 연산이 끝나면 `Bool` 형식으로 결과를 반환한다.
 * ❔ 문자 "1"을 숫자 `1` 바꾼다면
 * ❔ 논리 `true`를 문자 "true"로 바꾼다면
-* ❔ 문제: `1`과 `2`를 `일치 연산자`로 비교 후에 상수 `x`에 넣고, `x`를 `print`로 찍어 보기
+* ❔ 문제: `1`과 `2`를 `동등 연산자`로 비교 후에 상수 `x`에 넣고, `x`를 `print`로 찍어 보기
 * <details><summary>정답</summary>
 
   ```swift
@@ -303,7 +304,7 @@ let roundBracket2 = (1 + 2) * 3
 let roundBracket3 = ((1 + 2) * 3)
 ```
 * ❕ `소괄호 연산자`는 `사칙 연산자`보다 우선 순위를 갖는다.
-* ❔ 문제: `소괄호 연산자` 안에서 `true`와 `false`를 `일치 연산자`로 연산 후에 상수 `y`에 넣고, `y`를 `print`로 찍어 보기
+* ❔ 문제: `소괄호 연산자` 안에서 `true`와 `false`를 `동등 연산자`로 연산 후에 상수 `y`에 넣고, `y`를 `print`로 찍어 보기
 * <details><summary>정답</summary>
 
   ```swift
@@ -339,7 +340,7 @@ if (if1 == 1) {
     print("거짓")
 }
 ```
-* 조건은 주로 연산자를 사용해서 `Boolean` 형식으로 받는다.
+* 조건은 주로 연산자를 사용해서 `Bool` 형식으로 받는다.
 * `if1` 값을 수정하여 `참2 또는 참3`이 나오게 만들기
 * `if1` 값을 수정하여 `참4`이 나오게 만들기
 * `if1` 값을 수정하여 `거짓`이 나오게 만들기
@@ -654,7 +655,7 @@ func testFor3() throws {
 
   ```swift
   let array1 = [1, 2, 3]
-  var array2: [Any] = []
+  var array2: [Int] = []
   for index9 in array1.indices {
       print(index9, array1[index9])
       array2.append(array1[index9])
@@ -664,39 +665,34 @@ func testFor3() throws {
 </details>
 
 * ❕ 결과적으로 `array2`는 `array1`을 복사하였다.
-* ❔ `array1 === array2` 참일까요?
+* ❔ `array1 == array2` 참일까?
+
+#### 메모리 주소
+```swift
+func testFor4() throws {
+    func getBufferAddress<T>(array: [T]) -> Int {
+        return array.withUnsafeBufferPointer { buffer in
+            return Int(bitPattern: buffer.baseAddress)
+        }
+    }
+    var array3 = [1, 2, 3]
+    var array4 = array3
+    print(getBufferAddress(array: array3))
+    print(getBufferAddress(array: array4))
+    print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
+}
+```
 * ❕ 메모리 설명
+* ❔ `array3 == array4` 참일까?
 ```swift
-var array3 = [1, 2, 3]
-var array4 = array3
+array3 = [3]
+array4 = [4]
+print(getBufferAddress(array: array3))
+print(getBufferAddress(array: array4))
+print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
 ```
-* ❔ `array3 === array4` 참일까?
-```swift
-array3 = 3
-array4 = 4
-```
-* ❔ 문제: `array3`에서 사용하던 배열에 다시 접근할 수 있을까?
+* ❔ 문제: `array3`에서 사용하던 `[1, 2, 3]` 배열에 다시 접근할 수 있을까?
 * <details><summary>정답</summary>
 
   없다. (따라서 배열은 `let`로 사용 해야한다.)
-</details>
-
-### index++와 ++index의 차이
-```swift
-var index = 0
-let diff1 = index++
-let diff2 = ++index
-```
-* <details><summary>동작</summary>
-
-  ```swift
-  var index = 0
-  // let diff1 = index++
-  let diff1 = index
-  index += 1
-
-  // let diff2 = ++index
-  index += 1
-  let diff2 = index
-  ```
 </details>
