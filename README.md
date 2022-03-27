@@ -631,22 +631,33 @@ print(index7)
 </details>
 
 ### for문에서 배열 사용하기
+1. `값`을 받는 방법
 ```swift
 func testFor3() throws {
-    let array1 = [1, 2, 3]
-    for index9 in array1 {
-      print(index9)
+    let array0 = [1, 2, 3]
+    for value1 in array0 {
+        print(value1)
     }
 }
 ```
-* ❔ 문제: `Script 상수 array2`에 `빈 배열`을 넣고, 위에 for문을 이용해 `array2` 배열을 `[1, 2, 3]`으로 만들고, `array2`를 for문이 끝나고 `print`로 찍어 보기
+2. `index`를 받는 방법
+```swift
+func testFor3() throws {
+    let array1 = [1, 2, 3]
+    for index9 in array1.indices {
+        print(index9, array1[index9])
+    }
+}
+```
+* ❔ 문제: `변수 array2`에 `빈 배열`을 넣고, 위에 for문을 이용해 `array2` 배열을 `[1, 2, 3]`으로 만들고, `array2`를 for문이 끝나고 `print`로 찍어 보기
 * <details><summary>정답</summary>
 
   ```swift
   let array1 = [1, 2, 3]
-  let array2 = []
-  for (var index9 = 0; index9 < array1.length; index9++) {
-    array2.push(array1[index9])
+  var array2: [Any] = []
+  for index9 in array1.indices {
+      print(index9, array1[index9])
+      array2.append(array1[index9])
   }
   print(array2)
   ```
