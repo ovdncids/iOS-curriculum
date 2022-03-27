@@ -632,7 +632,7 @@ print(index7)
 </details>
 
 ### for문에서 배열 사용하기
-1. `값`을 받는 방법
+1. `value`를 받는 방법
 ```swift
 func testFor3() throws {
     let array0 = [1, 2, 3]
