@@ -28,3 +28,6 @@ code .
 # 실행 및 디버그 > Play 버튼 (Debug 보다는 Release가 빠름)
 ```
 * ❕ 갑자기 `CPU` 사용이 늘어 난다면 `활성 상태 보기`에서 `electron` 중지
+
+## Online Swift
+* https://www.tutorialspoint.com/compile_swift_online.php
