@@ -698,38 +698,45 @@ print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
 </details>
 
 ## 함수
-function.html
-```html
-<script>
-</script>
+SwiftStudyTests/FunctionTests.swift
+```swift
+import XCTest
+
+class FunctionTests: XCTestCase {
+
+}
 ```
 
 ### 함수를 사용하는 이유
 1. 주로 버튼을 클릭후 동작을 `함수`에 정의 한다.
 2. 여러줄에 걸쳐 실행되던 동일한 작업을, 함수 호출 한줄로 동일한 결과를 만들어 낼 수 있다. (반복됐던 만큼 코드양이 줄어 가독성을 높일 수 있다.)
 * `DRY`: (Don't repeat yourself)
+* 동일한 작업이 `2번 이상 반복` 된다면 무조건 함수로 만든다. (이런 작업을 `리팩토링`이라 한다.)
 
 ### 함수 문법
 1. 기본 구조
 ```swift
 // 함수 선언부
-let 함수명 = function(인자1, 인자2, ...) {
+func 함수명(인자1: 인자1타입, 인자2: 인자2타입, ...) -> 리턴타입 {
   실행문
   ...
   return 반환값
 }
 
 // 함수 호출부
-let 반환받는상수 = 함수명(인수1, 인수2, ...)
+let 반환받는상수 = 함수명(인자1명: 인수1, 인자2명: 인수2, ...)
 ```
 
 * 예제
 ```swift
-let func1 = function(parameter1, parameter2) {
-  let sum1 = parameter1 + parameter2
-  return sum1
+func testFunction1() throws {
+    func func1(parameter1: String, parameter2: String) -> String {
+        let sum1 = parameter1 + parameter2
+        return sum1
+    }
+    let returned1 = func1(parameter1: "argument1", parameter2: "argument2")
+    print(returned1)
 }
-let returned1 = func1("argument1", "argument2")
 ```
 * Console 창에서 `func1`, `returned1` 찍어 보기
 * `breakpoint`로 진행 확인
