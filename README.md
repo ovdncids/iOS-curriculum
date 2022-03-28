@@ -696,3 +696,172 @@ print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
 
   없다. (따라서 배열은 `let`로 사용 해야한다.)
 </details>
+
+## 함수
+function.html
+```html
+<script>
+</script>
+```
+
+### 함수를 사용하는 이유
+1. 주로 버튼을 클릭후 동작을 `함수`에 정의 한다.
+2. 여러줄에 걸쳐 실행되던 동일한 작업을, 함수 호출 한줄로 동일한 결과를 만들어 낼 수 있다. (반복됐던 만큼 코드양이 줄어 가독성을 높일 수 있다.)
+* `DRY`: (Don't repeat yourself)
+
+### 함수 문법
+1. 기본 구조
+```swift
+// 함수 선언부
+let 함수명 = function(인자1, 인자2, ...) {
+  실행문
+  ...
+  return 반환값
+}
+
+// 함수 호출부
+let 반환받는상수 = 함수명(인수1, 인수2, ...)
+```
+
+* 예제
+```swift
+let func1 = function(parameter1, parameter2) {
+  let sum1 = parameter1 + parameter2
+  return sum1
+}
+let returned1 = func1("argument1", "argument2")
+```
+* Console 창에서 `func1`, `returned1` 찍어 보기
+* `breakpoint`로 진행 확인
+* `실행`과 `호출`의 차이 설명하기
+* `func1(1, 2)` `호출` 해보기
+* ❔ 함수 안에 `return`이 없다면 `returned1`의 값은?
+* ❔ `argument2`를 넘기지 않는다면 `sum1`의 값은?
+* ❔ `argument1`, `argument2` 둘다 넘기지 않는다면 `sum1`의 값은?
+* `parameter1`은 함수 내부적으로 `var parameter1 = 인수1` 이렇게 작동 한다.
+* ❔ `parameter2`를 지운다면 `sum1`의 값은?
+* ❔ `parameter1`, `parameter2` 둘다 지운다면 `sum1`의 값은?
+* ❔ 문제: `console.log("함수 호출")`이라는 실행문을 가진 `함수`를 상수 `f1`에 넣고, 해당 `함수` 호출 시키기
+* <details><summary>정답</summary>
+
+  ```swift
+  let f1 = function() {
+    console.log("함수 호출")
+  }
+  f1()
+  ```
+</details>
+
+2. 인수에 자료형 데어터 넘기기
+```swift
+let scriptlet2 = "a"
+let func2 = function(parameter1) {
+  let compare1 = scriptlet2 === parameter1
+  parameter1 = "b"
+  let compare2 = scriptlet2 === parameter1
+}
+func2(scriptlet2)
+```
+* ❔ `compare2`는 `참`일까, `거짓`일까?
+
+3. 인수에 배열 넘기기
+```swift
+let scriptlet3 = []
+let func3 = function(parameter1) {
+  let compare1 = scriptlet3 === parameter1
+  parameter1.push("a")
+  scriptlet3.push("b")
+  let compare2 = scriptlet3 === parameter1
+}
+func3(scriptlet3)
+```
+* ❔ `compare2`는 `참`일까, `거짓`일까?
+
+4. 인수에 함수 넘기기
+```swift
+let scriptlet4 = function() {}
+let func4 = function(parameter1) {
+  let compare1 = scriptlet4 === parameter1
+  parameter1 = function() {}
+  let compare2 = scriptlet4 === parameter1
+}
+func4(scriptlet4)
+```
+* ❔ `compare2`는 `참`일까, `거짓`일까?
+* 익명 함수를 인수로 넘기기
+  ```diff
+  - func4(scriptlet4)
+  ```
+  ```swift
+  func4(function() {
+    console.log("익명함수 호출")
+  })
+  ```
+* ❔ 문제: `인수`로 넘긴 `익명 함수`를, `인자`로 호출 시키기
+* <details><summary>정답</summary>
+
+  ```swift
+  parameter1()
+  // 인수로 함수를 넘기고, 인자로 호출시키는 함수를 `콜백 함수`(Callback function)라 한다.
+  ```
+</details>
+
+5. 라이브러리: 특정 함수들의 모음 (Moment.js, Lodash)
+
+### 함수 실습 (회원 CRUD 만들기)
+membersFunction.html
+```html
+<script>
+</script>
+```
+
+* [데모](https://ovdncids.github.io/javascript-curriculum/membersFunction.html)
+* Console 창에서 호출
+```swift
+// Create
+membersCreate("홍길동")
+
+// Read
+membersRead()
+
+// Update
+membersUpdate(0, "김유신")
+
+// Devare
+membersDevare(0)
+```
+
+1. Create
+```swift
+let members = []
+
+let membersCreate = function(member) {
+  members.push(member)
+  return "Created"
+}
+```
+
+2. Read
+```swift
+let membersRead = function() {
+  return members
+}
+```
+
+3. Devare
+```swift
+let membersDevare = function(index) {
+  members.splice(index, 1)
+  return "Devared"
+}
+```
+
+4. Update
+```swift
+let membersUpdate = function(index, member) {
+  members[index] = member
+  return "Updated"
+}
+```
+
+* `배열의 CRUD`를 참조 하여, `membersFunction2.html` 파일을 생성하고, 처음 부터 코딩 해보기
