@@ -730,23 +730,23 @@ let 반환받는상수 = 함수명(인자1명: 인수1, 인자2명: 인수2, ...
 * 예제
 ```swift
 func testFunction1() throws {
-    func func1(parameter1: String, parameter2: String) -> String {
+    func func1(parameter1: Int, parameter2: Int) -> Int {
         let sum1 = parameter1 + parameter2
         return sum1
     }
-    let returned1 = func1(parameter1: "argument1", parameter2: "argument2")
+    let returned1 = func1(parameter1: 1, parameter2: 2)
     print(returned1)
 }
 ```
 * `print`로 `func1`, `returned1` 찍어 보기
 * `breakpoint`로 진행 확인
 * `실행`과 `호출`의 차이 설명하기
-* `func1(1, 2)` `호출` 해보기
+* `func1(parameter1: 1, parameter2: 2)`을 `returned1` 위에 넣어서 호출 해 보기
 * ❔ 함수 안에 `return`을 주석처리 한다면?
-* ❔ `func1(parameter1: "1")` 이렇게 인수를 하나만 넘긴다면?
-* ❔ `parameter2: String`를 지워서 인자를 하나만 받는다면?
-* `parameter1`은 함수 내부적으로 `var parameter1 = 인수1` 이렇게 작동 한다.
-* ❔ `parameter1: String` 의 자료형을 `Int`로 바꾼다면?
+* ❔ `func1(parameter1: 1)` 이렇게 인수를 하나만 넘긴다면?
+* ❔ `parameter2: Int`를 지워서 인자를 하나만 받는다면?
+* `parameter1`은 함수 내부적으로 `let parameter1 = 인수1` 이렇게 작동 한다.
+* ❔ `parameter1: Int` 의 자료형을 `String`로 바꾼다면?
 * ❔ 문제: `print("함수 호출")`이라는 실행문을 가진 `f1 함수`를 만들고, 해당 `함수` 호출 시키기
 * <details><summary>정답</summary>
 
@@ -758,15 +758,17 @@ func testFunction1() throws {
   ```
 </details>
 
-2. 인수에 자료형 데어터 넘기기
+2. 인수에 자료형 데이터 넘기기
 ```swift
-let scriptlet2 = "a"
-let func2 = function(parameter1) {
-  let compare1 = scriptlet2 === parameter1
-  parameter1 = "b"
-  let compare2 = scriptlet2 === parameter1
+var argument2 = "a"
+func func2(parameter1: String) {
+  let compare1 = argument2 == parameter1
+  print(compare1)
+  argument2 = "b"
+  let compare2 = argument2 == parameter1
+  print(compare2)
 }
-func2(scriptlet2)
+func2(parameter1: argument2)
 ```
 * ❔ `compare2`는 `참`일까, `거짓`일까?
 
