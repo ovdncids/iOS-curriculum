@@ -738,22 +738,21 @@ func testFunction1() throws {
     print(returned1)
 }
 ```
-* Console 창에서 `func1`, `returned1` 찍어 보기
+* `print`로 `func1`, `returned1` 찍어 보기
 * `breakpoint`로 진행 확인
 * `실행`과 `호출`의 차이 설명하기
 * `func1(1, 2)` `호출` 해보기
-* ❔ 함수 안에 `return`이 없다면 `returned1`의 값은?
-* ❔ `argument2`를 넘기지 않는다면 `sum1`의 값은?
-* ❔ `argument1`, `argument2` 둘다 넘기지 않는다면 `sum1`의 값은?
+* ❔ 함수 안에 `return`을 주석처리 한다면?
+* ❔ `func1(parameter1: "1")` 이렇게 인수를 하나만 넘긴다면?
+* ❔ `parameter2: String`를 지워서 인자를 하나만 받는다면?
 * `parameter1`은 함수 내부적으로 `var parameter1 = 인수1` 이렇게 작동 한다.
-* ❔ `parameter2`를 지운다면 `sum1`의 값은?
-* ❔ `parameter1`, `parameter2` 둘다 지운다면 `sum1`의 값은?
-* ❔ 문제: `console.log("함수 호출")`이라는 실행문을 가진 `함수`를 상수 `f1`에 넣고, 해당 `함수` 호출 시키기
+* ❔ `parameter1: String` 의 자료형을 `Int`로 바꾼다면?
+* ❔ 문제: `print("함수 호출")`이라는 실행문을 가진 `f1 함수`를 만들고, 해당 `함수` 호출 시키기
 * <details><summary>정답</summary>
 
   ```swift
-  let f1 = function() {
-    console.log("함수 호출")
+  func f1() {
+      print("함수 호출")
   }
   f1()
   ```
@@ -801,7 +800,7 @@ func4(scriptlet4)
   ```
   ```swift
   func4(function() {
-    console.log("익명함수 호출")
+    print("익명함수 호출")
   })
   ```
 * ❔ 문제: `인수`로 넘긴 `익명 함수`를, `인자`로 호출 시키기
