@@ -746,6 +746,7 @@ func testFunction1() throws {
 * ❔ `func1(parameter1: 1)` 이렇게 인수를 하나만 넘긴다면?
 * ❔ `parameter2: Int`를 지워서 인자를 하나만 받는다면?
 * `parameter1`은 함수 내부적으로 `let parameter1 = 인수1` 이렇게 작동 한다.
+* ❔ `parameter1 = 3`으로 할당 한다면?
 * ❔ `parameter1: Int` 의 자료형을 `String`로 바꾼다면?
 * ❔ 문제: `print("함수 호출")`이라는 실행문을 가진 `f1 함수`를 만들고, 해당 `함수` 호출 시키기
 * <details><summary>정답</summary>
@@ -760,50 +761,54 @@ func testFunction1() throws {
 
 2. 인수에 자료형 데이터 넘기기
 ```swift
-var argument2 = "a"
-func func2(parameter1: String) {
-  let compare1 = argument2 == parameter1
-  print(compare1)
-  argument2 = "b"
-  let compare2 = argument2 == parameter1
-  print(compare2)
-}
-func2(parameter1: argument2)
-```
+func testFunction2() throws {
+    var argument2 = "a"
+    func func2(parameter1: String) {
+        let compare1 = argument2 == parameter1
+        print(compare1)
+        argument2 = "b"
+        let compare2 = argument2 == parameter1
+        print(compare2)
+    }
+    func2(parameter1: argument2)
+}```
 * ❔ `compare2`는 `참`일까, `거짓`일까?
 
 3. 인수에 배열 넘기기
 ```swift
-let scriptlet3 = []
-let func3 = function(parameter1) {
-  let compare1 = scriptlet3 === parameter1
-  parameter1.push("a")
-  scriptlet3.push("b")
-  let compare2 = scriptlet3 === parameter1
+var argument3: [String] = []
+func func3(parameter1: [String]) {
+    let compare1 = argument3 == parameter1
+    print(compare1)
+    // parameter1.append("a")
+    argument3.append("b")
+    let compare2 = argument3 == parameter1
+    print(compare2)
 }
-func3(scriptlet3)
+func3(parameter1: argument3)
 ```
 * ❔ `compare2`는 `참`일까, `거짓`일까?
+* ❔ `// parameter1.append("a")` 주석을 푼다면?
 
 4. 인수에 함수 넘기기
 ```swift
-let scriptlet4 = function() {}
-let func4 = function(parameter1) {
-  let compare1 = scriptlet4 === parameter1
-  parameter1 = function() {}
-  let compare2 = scriptlet4 === parameter1
+var argument4 = {() -> () in}
+func func4(parameter1: () -> ()) {
+    let compare1 = argument4() == parameter1()
+    print(compare1)
+    argument4 = {() -> () in print("argument4")}
+    let compare2 = argument4() == parameter1()
+    print(compare2)
 }
-func4(scriptlet4)
+func4(parameter1: argument4)
 ```
 * ❔ `compare2`는 `참`일까, `거짓`일까?
-* 익명 함수를 인수로 넘기기
-  ```diff
-  - func4(scriptlet4)
-  ```
+
+5. 익명 함수를 인수로 넘기기
   ```swift
-  func4(function() {
-    print("익명함수 호출")
-  })
+  func func5(parameter1: () -> ()) {
+  }
+  func5(parameter1: {() -> () in print("익명함수 호출")})
   ```
 * ❔ 문제: `인수`로 넘긴 `익명 함수`를, `인자`로 호출 시키기
 * <details><summary>정답</summary>
@@ -814,7 +819,7 @@ func4(scriptlet4)
   ```
 </details>
 
-5. 라이브러리: 특정 함수들의 모음 (Moment.js, Lodash)
+6. 라이브러리: 특정 함수들의 모음 (Numerics, chart)
 
 ### 함수 실습 (회원 CRUD 만들기)
 membersFunction.html
