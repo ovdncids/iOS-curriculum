@@ -822,50 +822,49 @@ func4(parameter1: argument4)
 6. 라이브러리: 특정 함수들의 모음 (Numerics, chart)
 
 ### 함수 실습 (회원 CRUD 만들기)
-membersFunction.html
-```html
-<script>
-</script>
-```
-
-* [데모](https://ovdncids.github.io/javascript-curriculum/membersFunction.html)
-* Console 창에서 호출
+SwiftStudyTests/MembersFunctionTests.swift
 ```swift
-// Create
-membersCreate("홍길동")
+import XCTest
 
-// Read
-membersRead()
+class MembersFunctionTests: XCTestCase {
 
-// Update
-membersUpdate(0, "김유신")
-
-// Devare
-membersDevare(0)
+}
 ```
 
 1. Create
 ```swift
-let members = []
+var members: [String] = []
+func membersCreate(member: String) {
+    members.append(member)
+}
 
-let membersCreate = function(member) {
-  members.push(member)
-  return "Created"
+func testMembersFunction1() throws {
+    // Create
+    membersCreate(member: "홍길동")
 }
 ```
 
 2. Read
 ```swift
-let membersRead = function() {
-  return members
+func membersRead() {
+    print(members)
+}
+
+func testMembersFunction1() throws {
+    // Read
+    membersRead()
 }
 ```
 
-3. Devare
+3. Delete
 ```swift
-let membersDevare = function(index) {
-  members.splice(index, 1)
-  return "Devared"
+func membersDelete(index: Int) {
+    members.remove(at: index)
+}
+
+func testMembersFunction1() throws {
+    // Delete
+    membersDelete(index: 1)
 }
 ```
 
