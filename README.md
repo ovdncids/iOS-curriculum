@@ -870,10 +870,14 @@ func testMembersFunction1() throws {
 
 4. Update
 ```swift
-let membersUpdate = function(index, member) {
-  members[index] = member
-  return "Updated"
+func membersUpdate(index: Int, member: String) {
+    members[index] = member
+}
+  
+func testMembersFunction1() throws {
+    // Update
+    membersUpdate(index: 0, member: "길동이")
 }
 ```
 
-* `배열의 CRUD`를 참조 하여, `membersFunction2.html` 파일을 생성하고, 처음 부터 코딩 해보기
+* `배열의 CRUD`를 참조 하여, `MembersFunction2Tests.swift` 파일을 생성하고, 처음 부터 코딩 해보기
