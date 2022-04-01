@@ -696,10 +696,7 @@ print(getBufferAddress(array: array4))
 print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
 ```
 * ❔ 문제: `array3`에서 사용하던 `[1, 2, 3]` 배열에 다시 접근할 수 있을까?
-* <details><summary>정답</summary>
-
-  없다. (따라서 배열은 `let`로 사용 해야한다.)
-</details>
+* ❔ `array3[0] = 3` 이렇게 값을 동일 하게 수정 해도 `메모리 주소`가 변할까?
 
 ## 함수
 SwiftStudyTests/FunctionTests.swift
