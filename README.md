@@ -388,6 +388,10 @@ func testArray1() throws {
     let array2 = [1, 2, 3]
 }
 ```
+* ❕ Swift는 `자료형 유추`가 가능한 언어
+```swift
+let array2: [Int] = [1, 2, 3]
+```
 
 https://t1.daumcdn.net/blogfile/fs8/27_25_21_25_0O7Ul_IMAGE_0_42.jpg?original&filename=42.jpg
 
