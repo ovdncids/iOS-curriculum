@@ -873,65 +873,65 @@ class ClassTests: XCTestCase {
 
 1. 기본 구조
 ```swift
-class 클래스명:
-  키1 = 값1
-  키2 = 값2
+class 클래스명 
+    var 키1 = 값1
+    var 키2 = 값2
 }
 ```
 
 * 예제
 ```swift
-class Class1:
-  pass
-
-class Class2:
-  key1 = '값1'
-  key2 = [1, 2, 3]
-  def key3(self):
-    print(self.key1)
-  key4 = {
-    'k1': 'v1',
-    'k2': 'v2'
-  }
-
-object1 = Class1()
-object2 = Class2()
+class Class1 {
+    var key1 = true
+    var key2 = 100
+    var key3 = "abc"
+}
 ```
-* `pass`는 `class문` 안에 내용이 없을때 사용한다
 
 ### 오브젝트의 CRUD
 ```swift
-# 오브젝트 Create
-object1.key1 = 1
-object1.key2 = '2'
-object1.key3 = '삼'
+func testClass1() throws {
+    let object1 = Class1()
 
-# 오브젝트 Read
-object1.key1
-o1 = object1.key1
-o2 = object1.key2
-o3 = object1.key3
+    // 오브젝트 Create
+    // object1.key4 = [1, 2, 3]
 
-# 오브젝트 Update
-object1.key1 = []
-object1.key2 = object2.key3
-object1.key3 = {
-  'k1': 'v1',
-  'k2': 'v2'
+    // 오브젝트 Read
+    object1.key1
+    let o1 = object1.key1
+    let o2 = object1.key2
+    let o3 = object1.key3
+    print(o1, o2, o3)
+
+    // 오브젝트 Update
+    object1.key1 = false
+    object1.key2 = -10
+    object1.key3 = "def"
+    print(object1)
+
+    // 오브젝트 Delete
 }
-
-# 오브젝트 Delete
-del object1.key1
-del object1.key2
-del object1.key3
-
-print(object1)
 ```
 
-#### `Python Console 창`에서 `오브젝트의 CRUD` 호출 해보기
+### 오브젝트 비교
 ```swift
-from class import object1, object2
+func testClass2() throws {
+    let object2 = Class1()
+    var object3 = Class1()
+    print(object2 === object3)
+    object3 = object2
+    print(object2 === object3)
+
+    object3.key1 = false
+    let compare1 = object2 === object3
+    let compare2 = object2.key1 == object3.key1
+}
 ```
+* ❕ 메모리 설명
+
+### 오브젝트 안의 배열과 함수 사용
+
+
 
 #### `object2` 활용
 * ❔ `object2.key2` 배열의 `length` 구하기
