@@ -671,34 +671,6 @@ func testFor3() throws {
 * ❕ 결과적으로 `array2`는 `array1`을 복사하였다.
 * ❔ `array1 == array2` 참일까?
 
-#### 메모리 주소 (초심자는 PASS)
-```swift
-func testFor4() throws {
-    func getBufferAddress<T>(array: [T]) -> Int {
-        return array.withUnsafeBufferPointer { buffer in
-            return Int(bitPattern: buffer.baseAddress)
-        }
-    }
-    var array3 = [1, 2, 3]
-    var array4 = array3
-    print(getBufferAddress(array: array3))
-    print(getBufferAddress(array: array4))
-    print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
-}
-```
-* ❕ 메모리 설명
-* ❔ `array3 == array4` 참일까?
-```swift
-array3 = [3]
-array4 = [4]
-print(getBufferAddress(array: array3))
-print(getBufferAddress(array: array4))
-print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
-```
-* ❔ 문제: `array3`에서 사용하던 `[1, 2, 3]` 배열에 다시 접근할 수 있을까?
-* ❔ `array3[0] = 3` 이렇게 값을 동일 하게 수정 해도 `메모리 주소`가 변할까?
-* [깊은 복사, 얕은 복사](https://velog.io/@ellyheetov/Shallow-Copy-VS-Deep-Copy)
-
 ## 함수
 SwiftStudyTests/FunctionTests.swift
 ```swift
@@ -883,3 +855,96 @@ func testMembersFunction1() throws {
 ```
 
 * `배열의 CRUD`를 참조 하여, `MembersFunction2Tests.swift` 파일을 생성하고, 처음 부터 코딩 해보기
+
+## 클래스
+### 클래스를 사용하는 이유
+1. `인스턴스 오브젝트`를 만들기 위해서 `클래스`를 생성한다.
+2. 오브젝트는 `붕어빵`, 클래스는 `붕어빵 기계`라고 생각하면 쉽다. (붕어빵 기계 하나가 하루에 100개 이상의 붕어빵을 만들수 있다.)
+
+### 클래스 문법
+SwiftStudyTests/ClassTests.swift
+```swift
+import XCTest
+
+class ClassTests: XCTestCase {
+
+}
+```
+
+1. 기본 구조
+```swift
+class 클래스명:
+  키1 = 값1
+  키2 = 값2
+}
+```
+
+* 예제
+```swift
+class Class1:
+  pass
+
+class Class2:
+  key1 = '값1'
+  key2 = [1, 2, 3]
+  def key3(self):
+    print(self.key1)
+  key4 = {
+    'k1': 'v1',
+    'k2': 'v2'
+  }
+
+object1 = Class1()
+object2 = Class2()
+```
+* `pass`는 `class문` 안에 내용이 없을때 사용한다
+
+### 오브젝트의 CRUD
+```swift
+# 오브젝트 Create
+object1.key1 = 1
+object1.key2 = '2'
+object1.key3 = '삼'
+
+# 오브젝트 Read
+object1.key1
+o1 = object1.key1
+o2 = object1.key2
+o3 = object1.key3
+
+# 오브젝트 Update
+object1.key1 = []
+object1.key2 = object2.key3
+object1.key3 = {
+  'k1': 'v1',
+  'k2': 'v2'
+}
+
+# 오브젝트 Delete
+del object1.key1
+del object1.key2
+del object1.key3
+
+print(object1)
+```
+
+#### `Python Console 창`에서 `오브젝트의 CRUD` 호출 해보기
+```swift
+from class import object1, object2
+```
+
+#### `object2` 활용
+* ❔ `object2.key2` 배열의 `length` 구하기
+* ❔ `object2.key3` 함수 호출 시키기
+* ❔ `object2.key4` 오브젝트의 `k1`키 삭제 하기
+<!--
+`del object2.key3` 삭제 할때 에러가 발생할 경우
+`object2.key3 = None` 먼저 실행 후 삭제 한다.
+-->
+* ❔ `object2.key5` 선언 되지 않은 `key5` 읽기
+
+* ❕ `키`이름에 대한 규칙
+```
+`영문, 숫자, _`를 자유롭게 조합해서 쓸 수 있다.
+숫자를 앞으로 사용 불가 (1a, 2b, ...)
+```
