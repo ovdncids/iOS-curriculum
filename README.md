@@ -671,7 +671,7 @@ func testFor3() throws {
 * ❕ 결과적으로 `array2`는 `array1`을 복사하였다.
 * ❔ `array1 == array2` 참일까?
 
-#### 메모리 주소
+#### 메모리 주소 (초심자는 PASS)
 ```swift
 func testFor4() throws {
     func getBufferAddress<T>(array: [T]) -> Int {
@@ -697,6 +697,7 @@ print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
 ```
 * ❔ 문제: `array3`에서 사용하던 `[1, 2, 3]` 배열에 다시 접근할 수 있을까?
 * ❔ `array3[0] = 3` 이렇게 값을 동일 하게 수정 해도 `메모리 주소`가 변할까?
+* [깊은 복사, 얕은 복사](https://velog.io/@ellyheetov/Shallow-Copy-VS-Deep-Copy)
 
 ## 함수
 SwiftStudyTests/FunctionTests.swift
