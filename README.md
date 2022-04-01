@@ -388,7 +388,7 @@ func testArray1() throws {
     let array2 = [1, 2, 3]
 }
 ```
-* ❕ Swift는 `자료형 유추`가 가능한 언어
+* ❕ Swift는 `자료형 유추`가 가능한 언어 (따라서 자료형 생략이 가능함)
 ```swift
 let array2: [Int] = [1, 2, 3]
 ```
