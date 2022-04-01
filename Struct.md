@@ -1,6 +1,6 @@
 # Struct type
 ## Struct와 Class의 가장 큰 차이
-* Class는 `참조 복사`하고, Struct는 `깊은 복사`를 한다
+* Class는 `참조 복사`하고, Struct는 `깊은 복사`를 한다.
 
 ## 배열의 메모리 주소
 ```swift
@@ -30,3 +30,4 @@ print(getBufferAddress(array: array3) == getBufferAddress(array: array4))
 * ❔ `array3[0] = 3` 이렇게 값을 동일 하게 수정 해도 `메모리 주소`가 변할까?
 * [깊은 복사, 얕은 복사](https://velog.io/@ellyheetov/Shallow-Copy-VS-Deep-Copy)
 * [Copy on write](https://icksw.tistory.com/256)
+* ❕ 배열은 `Struct 형`이다.
