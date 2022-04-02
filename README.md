@@ -929,20 +929,26 @@ func testClass2() throws {
 ```
 * ❕ 메모리 설명
 
-### 오브젝트 안의 배열과 함수 사용
+### 오브젝트 안에서 배열과 함수 사용
+```swift
+class Class4 {
+    var key4: [Int] = []
+    func key5() {
+        print(self)
+    }
+    init(key4: [Int]) {
+        self.key4 = key4
+    }
+}
 
-
-
-#### `object2` 활용
-* ❔ `object2.key2` 배열의 `length` 구하기
-* ❔ `object2.key3` 함수 호출 시키기
-* ❔ `object2.key4` 오브젝트의 `k1`키 삭제 하기
-<!--
-`del object2.key3` 삭제 할때 에러가 발생할 경우
-`object2.key3 = None` 먼저 실행 후 삭제 한다.
--->
-* ❔ `object2.key5` 선언 되지 않은 `key5` 읽기
-
+func testClass4() throws {
+    let object4 = Class4(key4: [1, 2, 3])
+    print(object4.key4)
+}
+```
+* `init`, `self` 설명
+* ❔ `object4.key4` 배열의 `length` 구하기
+* ❔ `object4.key5` 함수 호출 시키기
 * ❕ `키`이름에 대한 규칙
 ```
 `영문, 숫자, _`를 자유롭게 조합해서 쓸 수 있다.
