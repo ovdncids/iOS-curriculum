@@ -22,3 +22,9 @@ struct 파일명: View {
     }
 }
 ```
+
+## JSON 파일 추가
+```sh
+# JSON 파일을 프로젝트로 Drag > Copy items if nedded > 체크
+## 이제 프로젝트 어디서든 사용 가능
+```
