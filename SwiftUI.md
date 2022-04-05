@@ -10,7 +10,8 @@
 
 ## 단축키
 * Command + Click: `Editor 창`에서 해당 속성의 `자주 사용하는 메뉴` 띄우기
-* Control + Option + Click: `Editor 창`에서 해당 속성의 `UI 메뉴` 띄우기
+* Control + Option + Click: `Editor 창`에서 해당 속성의 `UI 속성 메뉴` 띄우기
+* 오른쪽 상단 + 버튼: `Editor 창`에서 바로 사용할 수 있는 `UI 메뉴` 띄우기
 
 ## 이미지, SwiftUI View 추가
 * Assets < 이미지 추가
