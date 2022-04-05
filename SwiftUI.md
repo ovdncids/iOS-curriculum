@@ -7,6 +7,7 @@
 # SwiftStudy/ContentView.swift > Resume > 50% > Play 버튼으로 Live 모드
 ## Live 모드에서 XCode 오류가 덜 발생함
 ```
+* ❕ `SwiftUI View` 파일을 생성하면 `파일명_Previews` 이부분이 미리보기에 대한 설정이다.
 
 ## 단축키
 * Command + Click: `Editor 창`에서 해당 속성의 `자주 사용하는 메뉴` 띄우기
