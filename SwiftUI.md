@@ -4,8 +4,8 @@
 ## 미리보기
 ```sh
 # Editor > Canvas 체크
-# SwiftStudy/ContentView.swift > Resume > 50% > Play 버튼으로 Play 모드
-## Play 모드에서 XCode 오류가 덜 발생함
+# SwiftStudy/ContentView.swift > Resume > 50% > Play 버튼으로 Live 모드
+## Live 모드에서 XCode 오류가 덜 발생함
 ```
 
 ## 단축키
