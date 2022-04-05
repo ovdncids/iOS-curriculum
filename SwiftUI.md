@@ -11,3 +11,14 @@
 ## 단축키
 * Command + Click: `Editor 창`에서 해당 속성의 `자주 사용하는 메뉴` 띄우기
 * Control + Option + Click: `Editor 창`에서 해당 속성의 `UI 메뉴` 띄우기
+
+## 이미지, SwiftUI View 추가
+* Assets < 이미지 추가
+* File > New > File... > SwiftUI View > 파일명
+```swift
+struct 파일명: View {
+    var body: some View {
+        Image("추가 이미지명")
+    }
+}
+```
