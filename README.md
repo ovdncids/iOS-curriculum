@@ -543,7 +543,7 @@ for index2 in 0...2 {
 
 3. continue
 ```swift
-for index3 in 0...2 {
+for index3 in 0..<4 {
     if (index3 == 1) {
         continue
     }
