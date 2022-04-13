@@ -648,7 +648,7 @@ func testFor3() throws {
 ```swift
 func testFor3() throws {
     let array1 = [1, 2, 3]
-    for index9 in array1.indices {
+    for index9 in 0..<array1.count {
         print(index9, array1[index9])
     }
 }
@@ -659,7 +659,7 @@ func testFor3() throws {
   ```swift
   let array1 = [1, 2, 3]
   var array2: [Int] = []
-  for index9 in array1.indices {
+  for index9 in 0..<array1.count {
       print(index9, array1[index9])
       array2.append(array1[index9])
   }
