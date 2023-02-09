@@ -795,65 +795,65 @@ func4(parameter1: argument4)
 6. 라이브러리: 특정 함수들의 모음 (Numerics, chart)
 
 ### 함수 실습 (회원 CRUD 만들기)
-SwiftStudyTests/MembersFunctionTests.swift
+SwiftStudyTests/UsersFunctionTests.swift
 ```swift
 import XCTest
 
-class MembersFunctionTests: XCTestCase {
+class UsersFunctionTests: XCTestCase {
 
 }
 ```
 
 1. Create
 ```swift
-var members: [String] = []
-func membersCreate(member: String) {
-    members.append(member)
+var users: [String] = []
+func usersCreate(user: String) {
+    users.append(user)
 }
 
-func testMembersFunction1() throws {
+func testUsersFunction1() throws {
     // Create
-    membersCreate(member: "홍길동")
+    usersCreate(user: "홍길동")
 }
 ```
 
 2. Read
 ```swift
-func membersRead() {
-    print(members)
+func usersRead() {
+    print(users)
 }
 
-func testMembersFunction1() throws {
+func testUsersFunction1() throws {
     // Read
-    membersRead()
+    usersRead()
 }
 ```
 
 3. Delete
 ```swift
-func membersDelete(index: Int) {
-    members.remove(at: index)
+func usersDelete(index: Int) {
+    users.remove(at: index)
 }
 
-func testMembersFunction1() throws {
+func testUsersFunction1() throws {
     // Delete
-    membersDelete(index: 1)
+    usersDelete(index: 1)
 }
 ```
 
 4. Update
 ```swift
-func membersUpdate(index: Int, member: String) {
-    members[index] = member
+func usersUpdate(index: Int, user: String) {
+    users[index] = user
 }
   
-func testMembersFunction1() throws {
+func testUsersFunction1() throws {
     // Update
-    membersUpdate(index: 0, member: "길동이")
+    usersUpdate(index: 0, user: "길동이")
 }
 ```
 
-* `배열의 CRUD`를 참조 하여, `MembersFunction2Tests.swift` 파일을 생성하고, 처음 부터 코딩 해보기
+* `배열의 CRUD`를 참조 하여, `UsersFunction2Tests.swift` 파일을 생성하고, 처음 부터 코딩 해보기
 
 ## 클래스
 ### 클래스를 사용하는 이유
